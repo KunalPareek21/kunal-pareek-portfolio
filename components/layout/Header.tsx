@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useActiveSection } from "@/hooks/use-active-section";
 import { motion } from "motion/react";
-import { useMemo } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { Logo } from "@/components/ui/Logo";
 import { navItems } from "@/lib/data/portfolio";
 import { useTheme } from "next-themes";
@@ -13,6 +13,11 @@ export function Header() {
   const sectionIds = useMemo(() => navItems.map(item => item.id), []);
   const activeSection = useActiveSection(sectionIds, 300);
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <header
@@ -60,10 +65,12 @@ export function Header() {
               color: 'var(--text-muted)',
             }}
           >
-            {theme === 'dark' ? (
-              <Sun className="w-4 h-4 text-emerald-400" />
-            ) : (
-              <Moon className="w-4 h-4 text-emerald-600" />
+            {mounted && (
+              theme === 'dark' ? (
+                <Sun className="w-4 h-4 text-emerald-400" />
+              ) : (
+                <Moon className="w-4 h-4 text-emerald-600" />
+              )
             )}
           </button>
         </div>

@@ -50,8 +50,8 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased selection:bg-[#1A1A1A] selection:text-[#E5E7EB]" suppressHydrationWarning>
+        <JsonLd />
         <ThemeProvider>
-          <JsonLd />
           <CustomCursor />
           <ParticleFieldBackground />
           <div className="fixed inset-0 opacity-[0.03] pointer-events-none z-[-1]" style={{ backgroundImage: 'radial-gradient(#888888 0.5px, transparent 0.5px)', backgroundSize: '24px 24px' }}></div>
