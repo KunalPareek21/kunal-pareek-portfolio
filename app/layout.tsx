@@ -4,6 +4,7 @@ import { ParticleFieldBackground } from '@/components/effects/ParticleFieldBackg
 import { CustomCursor } from '@/components/effects/CustomCursor';
 import { JsonLd } from '@/components/JsonLd';
 import { ThemeProvider } from '@/components/ThemeProvider';
+import { BackToTop } from '@/components/ui/BackToTop';
 import { SITE_URL } from '@/lib/data/portfolio';
 
 export const metadata: Metadata = {
@@ -55,6 +56,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           <ParticleFieldBackground />
           <div className="fixed inset-0 opacity-[0.03] pointer-events-none z-[-1]" style={{ backgroundImage: 'radial-gradient(#888888 0.5px, transparent 0.5px)', backgroundSize: '24px 24px' }}></div>
           {children}
+          <BackToTop />
         </ThemeProvider>
       </body>
     </html>
