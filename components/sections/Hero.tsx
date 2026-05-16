@@ -129,6 +129,13 @@ export function Hero() {
                 .animate-border-pulse {
                   animation: borderPulse 8s ease-in-out infinite;
                 }
+                .no-scrollbar::-webkit-scrollbar {
+                  display: none;
+                }
+                .no-scrollbar {
+                  -ms-overflow-style: none;
+                  scrollbar-width: none;
+                }
               `}</style>
 
                             <div className="flex pt-3 pb-6 sm:pb-8 md:pb-12 overflow-hidden select-none group/marquee w-full">
@@ -225,13 +232,13 @@ export function Hero() {
                         </div>
 
                         {/* Futuristic Footer Strip - Enhanced spacing & visual rhythm */}
-                        <div className="mt-auto px-4 md:px-6 py-4 md:py-5 border-t flex flex-col justify-center text-[8.5px] lg:text-[10px] font-mono tracking-[0.08em] lg:tracking-[0.12em] uppercase" style={{ backgroundColor: 'var(--card)', borderColor: 'var(--border)', color: 'var(--text-secondary)' }}>
-                            <div className="flex flex-wrap md:flex-nowrap items-center justify-center lg:justify-start gap-y-2.5 gap-x-3 sm:gap-x-4 lg:gap-x-6 w-full opacity-65 hover:opacity-100 transition-opacity duration-500 md:whitespace-nowrap">
-                                <Terminal className="w-3.5 h-3.5 text-emerald-600/80 shrink-0 hidden sm:block" />
+                        <div className="mt-auto px-4 md:px-6 py-4 md:py-5 border-t flex flex-col justify-center text-[8.5px] lg:text-[10px] font-mono tracking-[0.08em] lg:tracking-[0.12em] uppercase overflow-x-auto no-scrollbar w-full" style={{ backgroundColor: 'var(--card)', borderColor: 'var(--border)', color: 'var(--text-secondary)' }}>
+                            <div className="flex flex-nowrap items-center md:justify-center lg:justify-start gap-x-3 sm:gap-x-4 lg:gap-x-6 w-full opacity-65 hover:opacity-100 transition-opacity duration-500 whitespace-nowrap min-w-max">
+                                <Terminal className="w-3.5 h-3.5 text-emerald-600/80 shrink-0" />
                                 <span className="shrink-0 text-emerald-600 font-semibold">OPEN-SOURCE WORDPRESS TOOLS</span>
-                                <span className="w-1.5 h-1.5 shrink-0 rounded-full bg-emerald-600/20 hidden sm:block" />
+                                <span className="w-1.5 h-1.5 shrink-0 rounded-full bg-emerald-600/20" />
                                 <span className="shrink-0 hover:text-emerald-500 transition-colors duration-300">ASYNC-FIRST ENGINEERING</span>
-                                <span className="w-1.5 h-1.5 shrink-0 rounded-full bg-emerald-600/20 hidden sm:block" />
+                                <span className="w-1.5 h-1.5 shrink-0 rounded-full bg-emerald-600/20" />
                                 <span className="shrink-0 hover:text-emerald-500 transition-colors duration-300">PUBLIC GITHUB PROJECTS</span>
                             </div>
                         </div>
