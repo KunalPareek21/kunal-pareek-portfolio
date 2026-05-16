@@ -11,7 +11,7 @@ export function OpenSource() {
           Open Source &amp; Community
         </h2>
         <p className="text-sm leading-relaxed max-w-2xl" style={{ color: 'var(--text-secondary)' }}>
-          I strongly believe in the open web. My ecosystem contributions span from developing functional WordPress plugins and robust themes to sharing developer tooling and architectural experiments in public.
+          I strongly believe in the open web and public engineering. My work spans open-source WordPress plugins, reusable tooling, internal systems, automation workflows, and frontend architecture experiments built for real-world scalability and maintainability.
         </p>
       </FadeIn>
 
@@ -51,12 +51,12 @@ export function OpenSource() {
           <BookOpen className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-1" />
           <div>
             <h3 className="text-[11px] font-bold uppercase mb-4" style={{ color: 'var(--text-primary)' }}>Open Source Philosophy</h3>
-            <div className="space-y-4 text-[11px] uppercase tracking-widest leading-relaxed font-medium" style={{ color: 'var(--text-muted)' }}>
+            <div className="space-y-4 text-[12px] leading-relaxed font-medium" style={{ color: 'var(--text-muted)' }}>
               <p>
-                My philosophy is grounded in collaboration, the open web, and the power of async culture. Learning in public isn&apos;t just about showing code; it&apos;s about documenting the &quot;why&quot; behind technical decisions.
+                My approach to engineering is grounded in maintainability, async collaboration, and the open web. I enjoy building tools that simplify workflows, improve developer experience, and remain understandable months after they&apos;re written.
               </p>
               <p>
-                I focus on building useful tools with long-term maintainability in mind. Whether it&apos;s a utility hook for a WordPress site or a sprawling Next.js dashboard, the code should be understandable by the next developer who touches it—which might be me six months from now.
+                Whether it&apos;s a WordPress utility plugin, internal dashboard, API integration, or frontend system, I focus on creating software that is scalable, reusable, and practical in real-world environments.
               </p>
             </div>
           </div>
