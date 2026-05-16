@@ -10,11 +10,11 @@ export function Hero() {
         style={{ background: 'linear-gradient(to bottom right, var(--hero-from), var(--hero-to))', borderColor: 'var(--border)' } as React.CSSProperties}
       >
         <h1 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6 leading-none" style={{ color: 'var(--text-primary)' }}>
-          Open Source Focused<br/>
+          Open Source Focused<br />
           <span className="text-emerald-500">Full Stack Engineer</span>
         </h1>
         <p className="max-w-full text-sm md:text-base mb-8 leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-          Building WordPress ecosystems, custom plugins, themes, APIs, automation tools, and modern frontend applications with React, Next.js, PHP, Node.js, and TypeScript.
+          Building scalable WordPress ecosystems, custom plugins, themes, APIs, internal tooling, and high-performance frontend systems using React, Next.js, PHP, Node.js, and TypeScript.
         </p>
 
         <div className="flex flex-wrap items-center gap-4">

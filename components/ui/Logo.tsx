@@ -21,11 +21,11 @@ export function Logo({ className }: { className?: string }) {
   return (
     <div className={`relative ${className}`}>
       <Image
-        src={resolvedTheme === 'light' ? "/logo-light.png" : "/logo.png"}
+        src="/logo.png"
         alt="Kunal Pareek Logo"
         width={200}
         height={106}
-        className="object-contain h-full w-auto transition-opacity duration-300"
+        className={`object-contain h-full w-auto transition-all duration-300 ${resolvedTheme === 'light' ? 'invert' : ''}`}
         priority
       />
     </div>
