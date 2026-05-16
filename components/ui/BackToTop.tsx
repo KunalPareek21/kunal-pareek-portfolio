@@ -32,12 +32,13 @@ export function BackToTop() {
       {isVisible && (
         <motion.button
           initial={{ opacity: 0, scale: 0.8, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
+          animate={{ opacity: 0.65, scale: 1, y: 0 }}
+          whileHover={{ opacity: 1, y: -4, scale: 1.05 }}
           exit={{ opacity: 0, scale: 0.8, y: 20 }}
           transition={{ duration: 0.3 }}
           onClick={scrollToTop}
           aria-label="Back to top"
-          className="fixed bottom-8 right-8 z-50 flex items-center justify-center w-11 h-11 rounded-lg border transition-all hover:-translate-y-1 group"
+          className="fixed bottom-8 right-8 z-50 flex items-center justify-center w-11 h-11 rounded-lg border group shadow-md backdrop-blur-sm cursor-pointer"
           style={{ 
             backgroundColor: 'var(--card-secondary)', 
             borderColor: 'var(--border)', 
