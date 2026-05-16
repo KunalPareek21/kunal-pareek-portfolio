@@ -7,8 +7,43 @@ import { useMemo, useState, useEffect } from "react";
 import { Logo } from "@/components/ui/Logo";
 import { navItems } from "@/lib/data/portfolio";
 import { useTheme } from "next-themes";
-import { Sun, Moon, Menu, X } from "lucide-react";
+import { Sun, Moon, Menu, X, Mail, Github, Linkedin } from "lucide-react";
 import { AnimatePresence } from "motion/react";
+
+const menuVariants = {
+  hidden: { opacity: 0, y: -20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.2,
+      when: "beforeChildren",
+      staggerChildren: 0.1,
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: -20,
+    transition: {
+      duration: 0.2,
+      when: "afterChildren",
+      staggerChildren: 0.05,
+      staggerDirection: -1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0 },
+  exit: { opacity: 0, x: -20 },
+};
+
+const bottomVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: 20 },
+};
 
 export function Header() {
   const sectionIds = useMemo(() => navItems.map(item => item.id), []);
@@ -97,10 +132,10 @@ export function Header() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
+            variants={menuVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
             className="fixed inset-0 z-[60] flex flex-col px-8 py-4"
             style={{ backgroundColor: 'var(--background)' }}
           >
@@ -122,14 +157,12 @@ export function Header() {
             </div>
             
             <nav className="flex flex-col gap-8 text-[13px] font-bold uppercase tracking-widest pl-4">
-              {navItems.map(({ label, id }, idx) => {
+              {navItems.map(({ label, id }) => {
                 const isActive = activeSection === id;
                 return (
                   <motion.div
                     key={id}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: idx * 0.1 }}
+                    variants={itemVariants}
                   >
                     <Link
                       href={`#${id}`}
@@ -145,11 +178,22 @@ export function Header() {
               })}
             </nav>
             
-            <div className="mt-auto pb-8 pl-4">
+            <motion.div variants={bottomVariants} className="mt-auto pb-8 pl-4">
+               <div className="flex gap-6 mb-6">
+                  <a href="mailto:kunalpareek56@gmail.com" aria-label="Email" className="transition-all duration-200 hover:scale-110" style={{ color: 'var(--text-muted)' }}>
+                     <Mail className="w-5 h-5 hover:text-emerald-500 transition-colors" />
+                  </a>
+                  <a href="https://github.com/KunalPareek21" target="_blank" rel="noreferrer" aria-label="GitHub" className="transition-all duration-200 hover:scale-110" style={{ color: 'var(--text-muted)' }}>
+                     <Github className="w-5 h-5 hover:text-emerald-500 transition-colors" />
+                  </a>
+                  <a href="https://linkedin.com/in/kunalpareek21" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="transition-all duration-200 hover:scale-110" style={{ color: 'var(--text-muted)' }}>
+                     <Linkedin className="w-5 h-5 hover:text-emerald-500 transition-colors" />
+                  </a>
+               </div>
                <p className="text-[10px] font-mono tracking-widest uppercase" style={{ color: 'var(--text-muted)' }}>
                  Focused on scalable systems, open source, and modern web engineering.
                </p>
-            </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
