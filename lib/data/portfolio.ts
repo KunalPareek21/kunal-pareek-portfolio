@@ -26,6 +26,7 @@ export const technicalStack = [
   "Docker",
   "WooCommerce",
   "MongoDB",
+  "Vue.js",
 ] as const;
 
 export const openSourceCategories = [
@@ -85,6 +86,7 @@ export const experienceTech = [
   "jQuery",
   "WooCommerce",
   "MongoDB",
+  "Vue.js",
 ] as const;
 
 export const projects = [
