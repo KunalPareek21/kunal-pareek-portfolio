@@ -5,7 +5,7 @@ import { noteTopics } from "@/lib/data/portfolio";
 
 export function Writing() {
   return (
-    <section id="notes" className="py-4 md:py-6 lg:py-8 px-8 md:px-12 lg:px-16 max-w-[1400px] mx-auto scroll-mt-24">
+    <section id="notes" className="py-4 md:py-6 lg:py-8 px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px] mx-auto scroll-mt-24">
       <FadeIn
         className="rounded-xl p-8 md:p-12 border transition-colors duration-300"
         style={{ backgroundColor: 'var(--card)', borderColor: 'var(--border)' } as React.CSSProperties}

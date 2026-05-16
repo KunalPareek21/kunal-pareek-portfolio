@@ -53,6 +53,7 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
@@ -62,7 +63,7 @@ export function Header() {
         className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b transition-colors duration-300"
         style={{ backgroundColor: 'var(--header-bg)', borderColor: 'var(--border)' }}
       >
-        <div className="max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 py-4 flex items-center justify-between">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-4">
             <Logo className="h-16" />
           </Link>
@@ -136,7 +137,7 @@ export function Header() {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="fixed inset-0 z-[60] flex flex-col px-8 py-4"
+            className="fixed inset-0 z-[60] flex flex-col px-4 sm:px-6 md:px-12 lg:px-16 py-4"
             style={{ backgroundColor: 'var(--background)' }}
           >
             <div className="flex justify-between items-center mb-12">
@@ -186,7 +187,7 @@ export function Header() {
                   <a href="https://github.com/KunalPareek21" target="_blank" rel="noreferrer" aria-label="GitHub" className="transition-all duration-200 hover:scale-110" style={{ color: 'var(--text-muted)' }}>
                      <Github className="w-5 h-5 hover:text-emerald-500 transition-colors" />
                   </a>
-                  <a href="https://linkedin.com/in/kunalpareek21" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="transition-all duration-200 hover:scale-110" style={{ color: 'var(--text-muted)' }}>
+                  <a href="https://www.linkedin.com/in/kunal-pareek21/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="transition-all duration-200 hover:scale-110" style={{ color: 'var(--text-muted)' }}>
                      <Linkedin className="w-5 h-5 hover:text-emerald-500 transition-colors" />
                   </a>
                </div>

@@ -4,7 +4,7 @@ import { openSourceCategories } from "@/lib/data/portfolio";
 
 export function OpenSource() {
   return (
-    <section id="open-source" className="py-4 md:py-6 lg:py-8 px-8 md:px-12 lg:px-16 max-w-[1400px] mx-auto scroll-mt-24">
+    <section id="open-source" className="py-4 md:py-6 lg:py-8 px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px] mx-auto scroll-mt-24">
       <FadeIn className="mb-8">
         <h2 className="text-[10px] uppercase tracking-widest font-bold flex items-center gap-2 mb-4" style={{ color: 'var(--text-muted)' }}>
           <Share2 className="w-4 h-4 text-emerald-500" />

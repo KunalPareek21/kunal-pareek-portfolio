@@ -1,25 +1,35 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { useTheme } from 'next-themes';
 
-const PARTICLE_COLORS = ['#3b82f6', '#a855f7', '#ec4899', '#06b6d4', '#fb923c'];
+const COLORS = {
+  primary: 'rgba(0, 255, 157, 1)', // Neon green
+  secondaries: [
+    'rgba(0, 240, 255, 1)', // Cyan
+    'rgba(0, 102, 255, 1)', // Blue
+    'rgba(168, 85, 247, 1)' // Purple
+  ],
+};
 
 interface ParticleFieldBackgroundProps {
   particleCount?: number;
-  interactionStrength?: number;
-  colors?: string[];
-  baseSpeed?: number;
 }
 
 export function ParticleFieldBackground({
-  particleCount = 220,
-  interactionStrength = 120,
-  colors = PARTICLE_COLORS,
-  baseSpeed = 0.35,
+  particleCount = 100, // Reduced default for premium smoothness
 }: ParticleFieldBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { theme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -31,92 +41,113 @@ export function ParticleFieldBackground({
 
     let width = window.innerWidth;
     let height = window.innerHeight;
-
+    
     let mouse = { x: -1000, y: -1000 };
+    
     let animationFrameId: number;
     let running = true;
 
     class Particle {
       x: number;
       y: number;
-      baseX: number;
-      baseY: number;
+      z: number; // depth: 0.2 (far) to 1 (near)
       size: number;
       color: string;
-      density: number;
+      isPrimary: boolean;
       vx: number;
       vy: number;
+      baseVx: number;
+      baseVy: number;
       phase: number;
+      distToMouse: number;
 
       constructor(canvasWidth: number, canvasHeight: number) {
-        this.x = (Math.random() - 0.5) * canvasWidth * 1.5 + canvasWidth / 2;
-        this.y = (Math.random() - 0.5) * canvasHeight * 1.5 + canvasHeight / 2;
-        this.baseX = this.x;
-        this.baseY = this.y;
-        this.size = Math.random() * 2 + 0.5;
-        this.color = colors[Math.floor(Math.random() * colors.length)];
-        this.density = (Math.random() * 30) + 1;
-        this.vx = 0;
-        this.vy = 0;
+        this.x = Math.random() * canvasWidth;
+        this.y = Math.random() * canvasHeight;
+        this.z = Math.random() * 0.8 + 0.2; 
+        this.size = this.z * 1.5; 
+        this.isPrimary = Math.random() > 0.25; 
+        this.color = this.isPrimary 
+          ? COLORS.primary 
+          : COLORS.secondaries[Math.floor(Math.random() * COLORS.secondaries.length)];
+          
+        this.baseVx = (Math.random() - 0.5) * 0.3 * this.z;
+        this.baseVy = (Math.random() - 0.5) * 0.3 * this.z;
+        this.vx = this.baseVx;
+        this.vy = this.baseVy;
         this.phase = Math.random() * Math.PI * 2;
+        this.distToMouse = 1000;
       }
 
-      update(mx: number, my: number) {
+      update(mx: number, my: number, canvasWidth: number, canvasHeight: number) {
         let dx = mx - this.x;
         let dy = my - this.y;
-        let distance = Math.sqrt(dx * dx + dy * dy);
-        if (distance === 0) distance = 0.001;
+        this.distToMouse = Math.sqrt(dx * dx + dy * dy);
         
-        let forceDirectionX = dx / distance;
-        let forceDirectionY = dy / distance;
+        const interactionRadius = 250;
         
-        const maxDistance = interactionStrength;
-        let force = (maxDistance - distance) / maxDistance;
-        let directionX = forceDirectionX * force * this.density;
-        let directionY = forceDirectionY * force * this.density;
-
-        if (distance < maxDistance) {
-          // Repel from mouse
-          this.vx -= directionX * 0.2;
-          this.vy -= directionY * 0.2;
+        // Attraction to mouse
+        if (this.distToMouse < interactionRadius && this.distToMouse > 0) {
+          const force = (interactionRadius - this.distToMouse) / interactionRadius;
+          const ax = (dx / this.distToMouse) * force * 0.02 * this.z;
+          const ay = (dy / this.distToMouse) * force * 0.02 * this.z;
+          this.vx += ax;
+          this.vy += ay;
         } else {
-          // Slowly return to base position
-          if (this.x !== this.baseX) {
-            let dxBase = this.x - this.baseX;
-            this.vx -= dxBase * 0.005;
-          }
-          if (this.y !== this.baseY) {
-            let dyBase = this.y - this.baseY;
-            this.vy -= dyBase * 0.005;
-          }
+          // Slowly return to base random velocity
+          this.vx += (this.baseVx - this.vx) * 0.02;
+          this.vy += (this.baseVy - this.vy) * 0.02;
         }
 
-        // Apply friction
-        this.vx *= 0.92;
-        this.vy *= 0.92;
+        // Friction
+        this.vx *= 0.98;
+        this.vy *= 0.98;
 
-        // Subtle ambient movement
-        this.phase += 0.01 * baseSpeed;
-        const ambientX = Math.sin(this.phase) * 0.3 * baseSpeed;
-        const ambientY = Math.cos(this.phase) * 0.3 * baseSpeed;
+        // Subtle ambient wobble
+        this.phase += 0.005;
+        const wobbleX = Math.sin(this.phase) * 0.05 * this.z;
+        const wobbleY = Math.cos(this.phase) * 0.05 * this.z;
 
-        this.x += this.vx + ambientX;
-        this.y += this.vy + ambientY;
+        this.x += this.vx + wobbleX;
+        this.y += this.vy + wobbleY;
+
+        // Wrap around gracefully
+        const margin = 50;
+        if (this.x < -margin) this.x = canvasWidth + margin;
+        if (this.x > canvasWidth + margin) this.x = -margin;
+        if (this.y < -margin) this.y = canvasHeight + margin;
+        if (this.y > canvasHeight + margin) this.y = -margin;
       }
 
-      draw(context: CanvasRenderingContext2D) {
-        context.globalAlpha = 0.7;
+      draw(context: CanvasRenderingContext2D, mx: number, my: number, width: number, height: number, isDark: boolean) {
+        // Soft opacity fade near edges
+        const edgeDistX = Math.min(this.x, width - this.x);
+        const edgeDistY = Math.min(this.y, height - this.y);
+        const edgeFade = Math.min(1, Math.max(0, Math.min(edgeDistX, edgeDistY) / 100));
+
+        // Neon pulse on hover proximity
+        let pulseGlow = 0;
+        if (this.distToMouse < 200) {
+          pulseGlow = (200 - this.distToMouse) / 200;
+        }
+
+        const baseAlpha = isDark ? 0.3 : 0.6;
+        const alpha = (baseAlpha + this.z * 0.4 + pulseGlow * 0.3) * edgeFade;
+
+        context.globalAlpha = alpha;
         context.fillStyle = this.color;
         
-        // Add subtle glow
-        context.shadowBlur = 5;
-        context.shadowColor = this.color;
+        if (pulseGlow > 0 && this.isPrimary) {
+          context.shadowBlur = 10 + pulseGlow * 15;
+          context.shadowColor = 'rgba(0, 255, 157, 1)';
+        } else {
+          context.shadowBlur = 0; // Massive performance gain
+        }
         
         context.beginPath();
-        context.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        context.arc(this.x, this.y, this.size * (1 + pulseGlow * 0.5), 0, Math.PI * 2);
         context.fill();
         
-        // Reset glow for next drawing
         context.shadowBlur = 0;
         context.globalAlpha = 1;
       }
@@ -128,16 +159,15 @@ export function ParticleFieldBackground({
       width = window.innerWidth;
       height = window.innerHeight;
       
-      const dpr = window.devicePixelRatio || 1;
+      // Limit DPR to 1.5 to prevent massive lag on Retina screens
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       canvas.width = width * dpr;
       canvas.height = height * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      canvas.style.width = width + 'px';
-      canvas.style.height = height + 'px';
-
+      
       particles = [];
       const densityAdjustedCount = Math.floor((width * height) / 18000) * (particleCount / 100);
-      const finalCount = Math.min(densityAdjustedCount, 420);
+      const finalCount = Math.min(densityAdjustedCount, 120);
 
       for (let i = 0; i < finalCount; i++) {
         particles.push(new Particle(width, height));
@@ -146,13 +176,48 @@ export function ParticleFieldBackground({
 
     const animate = () => {
       if (!running) return;
+      const currentTheme = resolvedTheme || theme;
+      const isDark = currentTheme === 'dark';
 
+      // Use basic clearRect to prevent extremely heavy canvas composite blending
       ctx.clearRect(0, 0, width, height);
 
       for (let i = 0; i < particles.length; i++) {
-        particles[i].update(mouse.x, mouse.y);
-        particles[i].draw(ctx);
+        particles[i].update(mouse.x, mouse.y, width, height);
       }
+
+      // Draw connections
+      const maxConnectionDist = 120;
+      const maxConnectionDistSq = maxConnectionDist * maxConnectionDist;
+      for (let i = 0; i < particles.length; i++) {
+        let p1 = particles[i];
+        if (p1.distToMouse > 350) continue; // Skip to optimize performance
+
+        for (let j = i + 1; j < particles.length; j++) {
+          let p2 = particles[j];
+          if (p2.distToMouse > 350) continue;
+          
+          let dx = p1.x - p2.x;
+          let dy = p1.y - p2.y;
+          let distSq = dx * dx + dy * dy;
+          
+          if (distSq < maxConnectionDistSq) {
+            const dist = Math.sqrt(distSq);
+            const opacity = (1 - dist / maxConnectionDist) * (isDark ? 0.3 : 0.6);
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(0, 255, 157, ${opacity})`;
+            ctx.lineWidth = 0.5;
+            ctx.moveTo(p1.x, p1.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].draw(ctx, mouse.x, mouse.y, width, height, isDark);
+      }
+
       animationFrameId = requestAnimationFrame(animate);
     };
 
@@ -192,12 +257,17 @@ export function ParticleFieldBackground({
       document.removeEventListener('visibilitychange', handleVisibilityChange);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [particleCount, interactionStrength, colors, baseSpeed]);
+  }, [particleCount, theme, resolvedTheme, mounted]);
+
+  if (!mounted) return null;
 
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-[-1]"
+      className="fixed inset-0 pointer-events-none z-[-2] w-full h-full"
+      style={{
+        background: (resolvedTheme || theme) === 'dark' ? '#050505' : 'transparent',
+      }}
     />
   );
 }
