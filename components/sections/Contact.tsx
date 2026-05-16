@@ -106,23 +106,22 @@ export function Contact() {
               </p>
             </div>
 
-            <div className="space-y-3">
-              <Link href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 text-[11px] uppercase tracking-widest font-bold py-3 rounded-lg transition-colors border hover:bg-emerald-500/10 hover:text-emerald-500 hover:border-emerald-500/30" style={{ backgroundColor: 'var(--card-secondary)', borderColor: 'var(--border)', color: 'var(--text-primary)' }}>
+            <div className="pt-4 flex flex-col sm:flex-row items-center gap-4">
+              <Link href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-2 text-[11px] uppercase tracking-widest font-bold px-8 py-3.5 rounded-lg transition-all border hover:opacity-90 hover:scale-[1.02]" style={{ backgroundColor: 'var(--text-primary)', borderColor: 'var(--text-primary)', color: 'var(--background)' }}>
                 <FileText className="w-4 h-4" />
                 Resume / CV
               </Link>
-              <Link href="mailto:kunalpareek56@gmail.com" className="w-full flex items-center justify-center gap-2 text-[11px] uppercase tracking-widest font-bold py-3 rounded-lg transition-colors border" style={{ backgroundColor: 'var(--card-secondary)', borderColor: 'var(--border)', color: 'var(--text-primary)' }}>
-                <Mail className="w-4 h-4" />
-                Email Me
-              </Link>
-              <Link href="https://github.com/KunalPareek21" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 text-[11px] uppercase tracking-widest font-bold py-3 rounded-lg transition-colors border" style={{ backgroundColor: 'var(--card-secondary)', borderColor: 'var(--border)', color: 'var(--text-primary)' }}>
-                <Github className="w-4 h-4" />
-                GitHub
-              </Link>
-              <Link href="https://www.linkedin.com/in/kunal-pareek21/" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 text-[11px] uppercase tracking-widest font-bold py-3 rounded-lg transition-colors border" style={{ backgroundColor: 'var(--card-secondary)', borderColor: 'var(--border)', color: 'var(--text-primary)' }}>
-                <Linkedin className="w-4 h-4" />
-                LinkedIn
-              </Link>
+              <div className="flex items-center gap-3 w-full sm:w-auto">
+                <Link href="mailto:kunalpareek56@gmail.com" className="flex-1 sm:flex-none flex items-center justify-center w-12 h-12 rounded-lg transition-all border hover:scale-105" style={{ backgroundColor: 'var(--card-secondary)', borderColor: 'var(--border)', color: 'var(--text-primary)' }}>
+                  <Mail className="w-4 h-4" />
+                </Link>
+                <Link href="https://github.com/KunalPareek21" target="_blank" rel="noopener noreferrer" className="flex-1 sm:flex-none flex items-center justify-center w-12 h-12 rounded-lg transition-all border hover:scale-105" style={{ backgroundColor: 'var(--card-secondary)', borderColor: 'var(--border)', color: 'var(--text-primary)' }}>
+                  <Github className="w-4 h-4" />
+                </Link>
+                <Link href="https://www.linkedin.com/in/kunal-pareek21/" target="_blank" rel="noopener noreferrer" className="flex-1 sm:flex-none flex items-center justify-center w-12 h-12 rounded-lg transition-all border hover:scale-105" style={{ backgroundColor: 'var(--card-secondary)', borderColor: 'var(--border)', color: 'var(--text-primary)' }}>
+                  <Linkedin className="w-4 h-4" />
+                </Link>
+              </div>
             </div>
           </div>
 
