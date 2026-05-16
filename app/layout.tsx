@@ -3,6 +3,7 @@ import './globals.css';
 import { ParticleFieldBackground } from '@/components/effects/ParticleFieldBackground';
 import { CustomCursor } from '@/components/effects/CustomCursor';
 import { JsonLd } from '@/components/JsonLd';
+import { ThemeProvider } from '@/components/ThemeProvider';
 import { SITE_URL } from '@/lib/data/portfolio';
 
 export const metadata: Metadata = {
@@ -46,13 +47,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <body className="antialiased selection:bg-[#1A1A1A] selection:text-[#E5E7EB]" suppressHydrationWarning>
-        <JsonLd />
-        <CustomCursor />
-        <ParticleFieldBackground />
-        <div className="fixed inset-0 opacity-[0.03] pointer-events-none z-[-1]" style={{ backgroundImage: 'radial-gradient(#ffffff 0.5px, transparent 0.5px)', backgroundSize: '24px 24px' }}></div>
-        {children}
+        <ThemeProvider>
+          <JsonLd />
+          <CustomCursor />
+          <ParticleFieldBackground />
+          <div className="fixed inset-0 opacity-[0.03] pointer-events-none z-[-1]" style={{ backgroundImage: 'radial-gradient(#888888 0.5px, transparent 0.5px)', backgroundSize: '24px 24px' }}></div>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

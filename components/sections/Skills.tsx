@@ -6,10 +6,11 @@ export function Skills() {
   return (
     <section id="skills" className="py-4 md:py-6 lg:py-8 px-8 md:px-12 lg:px-16 max-w-[1400px] mx-auto scroll-mt-24">
       <FadeIn
-        className="bg-[#0F0F0F] border border-[#1F1F1F] rounded-xl p-8 md:p-12"
+        className="rounded-xl p-8 md:p-12 border transition-colors duration-300"
+        style={{ backgroundColor: 'var(--card)', borderColor: 'var(--border)' } as React.CSSProperties}
       >
         <div className="mb-8">
-          <h2 className="text-[10px] uppercase tracking-widest text-[#6b7280] font-bold flex items-center gap-2">
+          <h2 className="text-[10px] uppercase tracking-widest font-bold flex items-center gap-2" style={{ color: 'var(--text-muted)' }}>
             <Wrench className="w-4 h-4 text-emerald-500" />
             Technical Arsenal
           </h2>
@@ -18,14 +19,15 @@ export function Skills() {
         <div className="grid md:grid-cols-2 gap-8 md:gap-12">
           {skillGroups.map((group) => (
             <div key={group.category} className="space-y-6">
-              <h3 className="text-[10px] uppercase tracking-widest text-[#6b7280] font-bold">
+              <h3 className="text-[10px] uppercase tracking-widest font-bold" style={{ color: 'var(--text-muted)' }}>
                 {group.category}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {group.skills.map((skill) => (
-                  <span 
-                    key={skill} 
-                    className="px-2 py-1 bg-[#1A1A1A] border border-[#2A2A2A] text-[#E5E7EB] text-[9px] uppercase tracking-widest font-bold rounded"
+                  <span
+                    key={skill}
+                    className="px-2 py-1 text-[9px] uppercase tracking-widest font-bold rounded border"
+                    style={{ backgroundColor: 'var(--card-secondary)', borderColor: 'var(--border-hover)', color: 'var(--text-primary)' }}
                   >
                     {skill}
                   </span>

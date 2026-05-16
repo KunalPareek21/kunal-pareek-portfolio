@@ -39,7 +39,6 @@ export function Contact() {
       showToast('Please provide your Email address', 'error');
       return;
     }
-    // Basic email validation regex
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       showToast('Please provide a valid Email address', 'error');
       return;
@@ -62,7 +61,7 @@ export function Contact() {
           Accept: 'application/json',
         },
       });
-      
+
       if (!response.ok) {
         throw new Error('Form submission failed');
       }
@@ -83,37 +82,37 @@ export function Contact() {
 
   return (
     <section id="contact" className="py-4 md:py-6 lg:py-8 px-8 md:px-12 lg:px-16 max-w-[1400px] mx-auto scroll-mt-24">
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
-        
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="bg-[#0F0F0F] border border-[#1F1F1F] rounded-xl p-8 md:p-12 text-white"
+        className="rounded-xl p-8 md:p-12 border transition-colors duration-300"
+        style={{ backgroundColor: 'var(--card)', borderColor: 'var(--border)' }}
       >
-        <h2 className="text-[10px] uppercase tracking-widest text-[#6b7280] mb-8 font-bold flex items-center gap-2">
+        <h2 className="text-[10px] uppercase tracking-widest font-bold flex items-center gap-2 mb-8" style={{ color: 'var(--text-muted)' }}>
           <Mail className="w-4 h-4 text-emerald-500" />
-          Contact & Collaboration
+          Contact &amp; Collaboration
         </h2>
-        
+
         <div className="grid md:grid-cols-2 gap-12">
           <div className="space-y-6">
             <div>
-              <h3 className="text-[14px] font-bold tracking-tight text-white mb-2">Let&apos;s Build Together</h3>
-              <p className="text-[12px] text-gray-400 leading-relaxed">
+              <h3 className="text-[14px] font-bold tracking-tight mb-2" style={{ color: 'var(--text-primary)' }}>Let&apos;s Build Together</h3>
+              <p className="text-[12px] leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                 Open for collaborations, new roles, and interesting conversations around open source, WordPress, and frontend systems.
               </p>
             </div>
-            
+
             <div className="space-y-3">
-              <Link href="mailto:kunalpareek56@gmail.com" className="w-full flex items-center justify-center gap-2 bg-[#1A1A1A] hover:bg-[#252525] border border-[#2A2A2A] text-[#E5E7EB] text-[11px] uppercase tracking-widest font-bold py-3 rounded-lg transition-colors">
+              <Link href="mailto:kunalpareek56@gmail.com" className="w-full flex items-center justify-center gap-2 text-[11px] uppercase tracking-widest font-bold py-3 rounded-lg transition-colors border" style={{ backgroundColor: 'var(--card-secondary)', borderColor: 'var(--border)', color: 'var(--text-primary)' }}>
                 <Mail className="w-4 h-4" />
                 Email Me
               </Link>
-              <Link href="https://github.com/KunalPareek21" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 bg-[#1A1A1A] hover:bg-[#252525] border border-[#2A2A2A] text-[#E5E7EB] text-[11px] uppercase tracking-widest font-bold py-3 rounded-lg transition-colors">
+              <Link href="https://github.com/KunalPareek21" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 text-[11px] uppercase tracking-widest font-bold py-3 rounded-lg transition-colors border" style={{ backgroundColor: 'var(--card-secondary)', borderColor: 'var(--border)', color: 'var(--text-primary)' }}>
                 <Github className="w-4 h-4" />
                 GitHub
               </Link>
-              <Link href="https://www.linkedin.com/in/kunal-pareek21/" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 bg-[#1A1A1A] hover:bg-[#252525] border border-[#2A2A2A] text-[#E5E7EB] text-[11px] uppercase tracking-widest font-bold py-3 rounded-lg transition-colors">
+              <Link href="https://www.linkedin.com/in/kunal-pareek21/" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 text-[11px] uppercase tracking-widest font-bold py-3 rounded-lg transition-colors border" style={{ backgroundColor: 'var(--card-secondary)', borderColor: 'var(--border)', color: 'var(--text-primary)' }}>
                 <Linkedin className="w-4 h-4" />
                 LinkedIn
               </Link>
@@ -129,58 +128,63 @@ export function Contact() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                  className="flex flex-col items-center justify-center bg-[#0F0F0F] rounded-xl border border-[#2A2A2A] p-8 text-center h-full min-h-[320px]"
+                  className="flex flex-col items-center justify-center rounded-xl border p-8 text-center h-full min-h-[320px]"
+                  style={{ backgroundColor: 'var(--card-secondary)', borderColor: 'var(--border)' }}
                 >
                   <CheckCircle2 className="w-12 h-12 text-emerald-500 mb-4" />
-                  <h3 className="text-lg font-bold text-white mb-2">Message Sent!</h3>
-                  <p className="text-xs text-gray-400 leading-relaxed">
+                  <h3 className="text-lg font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Message Sent!</h3>
+                  <p className="text-xs leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                     Thank you for reaching out. I&apos;ll get back to you as soon as possible.
                   </p>
                 </motion.div>
               ) : (
-                <motion.form 
+                <motion.form
                   key="form"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                  className="space-y-4 relative" 
+                  className="space-y-4 relative"
                   onSubmit={handleSubmit}
                 >
                   <div>
                     <label htmlFor="name" className="sr-only">Name</label>
-                    <input 
-                      type="text" 
-                      id="name" 
+                    <input
+                      type="text"
+                      id="name"
                       name="name"
-                      placeholder="Your Name" 
-                      className="w-full bg-[#1A1A1A] border border-[#2A2A2A] rounded-lg px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-emerald-500/50 transition-all text-sm"
+                      placeholder="Your Name"
+                      className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:border-emerald-500/50 transition-all text-sm"
+                      style={{ backgroundColor: 'var(--input-bg)', borderColor: 'var(--border)', color: 'var(--text-primary)' }}
                     />
                   </div>
                   <div>
                     <label htmlFor="email" className="sr-only">Email</label>
-                    <input 
-                      type="email" 
-                      id="email" 
+                    <input
+                      type="email"
+                      id="email"
                       name="email"
-                      placeholder="hello@example.com" 
-                      className="w-full bg-[#1A1A1A] border border-[#2A2A2A] rounded-lg px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-emerald-500/50 transition-all text-sm"
+                      placeholder="hello@example.com"
+                      className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:border-emerald-500/50 transition-all text-sm"
+                      style={{ backgroundColor: 'var(--input-bg)', borderColor: 'var(--border)', color: 'var(--text-primary)' }}
                     />
                   </div>
                   <div>
                     <label htmlFor="message" className="sr-only">Message</label>
-                    <textarea 
-                      id="message" 
+                    <textarea
+                      id="message"
                       name="message"
-                      rows={4} 
-                      placeholder="How can we collaborate?" 
-                      className="w-full bg-[#1A1A1A] border border-[#2A2A2A] rounded-lg px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-emerald-500/50 transition-all text-sm resize-none"
+                      rows={4}
+                      placeholder="How can we collaborate?"
+                      className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:border-emerald-500/50 transition-all text-sm resize-none"
+                      style={{ backgroundColor: 'var(--input-bg)', borderColor: 'var(--border)', color: 'var(--text-primary)' }}
                     ></textarea>
                   </div>
-                  <button 
-                    type="submit" 
+                  <button
+                    type="submit"
                     disabled={isSubmitting}
-                    className="w-full flex items-center justify-center gap-2 bg-white hover:bg-gray-200 text-black text-[11px] uppercase tracking-widest font-bold py-3 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full flex items-center justify-center gap-2 text-[11px] uppercase tracking-widest font-bold py-3 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    style={{ backgroundColor: 'var(--text-primary)', color: 'var(--background)' }}
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                     {!isSubmitting && <Send className="w-4 h-4" />}
@@ -201,14 +205,15 @@ export function Contact() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed top-6 right-6 z-50 flex items-center gap-3 bg-[#111111]/90 backdrop-blur-md border border-[#2A2A2A] shadow-2xl px-5 py-4 rounded-xl max-w-sm"
+            className="fixed top-6 right-6 z-50 flex items-center gap-3 backdrop-blur-md border shadow-2xl px-5 py-4 rounded-xl max-w-sm"
+            style={{ backgroundColor: 'var(--header-bg)', borderColor: 'var(--border)' }}
           >
             {toast.type === 'success' ? (
               <CheckCircle2 className="w-5 h-5 text-emerald-500 flex-shrink-0" />
             ) : (
               <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0" />
             )}
-            <p className="text-[11px] font-bold uppercase tracking-widest text-[#E5E7EB] leading-relaxed">{toast.message}</p>
+            <p className="text-[11px] font-bold uppercase tracking-widest leading-relaxed" style={{ color: 'var(--text-primary)' }}>{toast.message}</p>
           </motion.div>
         )}
       </AnimatePresence>
