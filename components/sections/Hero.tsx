@@ -10,14 +10,14 @@ export function Hero() {
         style={{ background: 'linear-gradient(to bottom right, var(--hero-from), var(--hero-to))', borderColor: 'var(--border)' } as React.CSSProperties}
       >
         <h1 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6 leading-none" style={{ color: 'var(--text-primary)' }}>
-          Open Source Focused<br />
-          <span className="text-emerald-500">Full Stack Engineer</span>
+          Full Stack Engineer &<br />
+          <span className="text-emerald-500">Open Source Builder</span>
         </h1>
         <p className="max-w-full text-sm md:text-base mb-8 leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-          Building scalable WordPress ecosystems, custom plugins, themes, APIs, internal tooling, and high-performance frontend systems using React, Next.js, PHP, Node.js, and TypeScript.
+          Currently building scalable WordPress ecosystems, open-source plugins, themes, APIs, internal tooling, and high-performance frontend systems using React, Next.js, PHP, Node.js, and TypeScript.
         </p>
 
-        <div className="flex flex-wrap items-center gap-4">
+        <div className="flex flex-wrap items-center gap-4 mb-6">
           <Link href="#projects" className="bg-emerald-500 text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-tight flex items-center gap-2 hover:bg-emerald-600 transition-colors">
             <FolderGit2 className="w-4 h-4" />
             Projects
@@ -30,6 +30,10 @@ export function Hero() {
             <Linkedin className="w-4 h-4" />
             LinkedIn
           </Link>
+        </div>
+
+        <div className="text-[11px] font-mono tracking-wider uppercase opacity-70" style={{ color: 'var(--text-muted)' }}>
+          Open-source WordPress tools • Async-first engineering • Public GitHub projects
         </div>
       </FadeIn>
     </section>
