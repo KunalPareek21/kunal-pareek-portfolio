@@ -7,6 +7,7 @@ import { LoadingScreen } from '@/components/ui/LoadingScreen';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { BackToTop } from '@/components/ui/BackToTop';
 import { SITE_URL } from '@/lib/data/portfolio';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -60,6 +61,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           {children}
           <BackToTop />
         </ThemeProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
