@@ -1,6 +1,6 @@
 'use client';
 
-import { Mail, Github, Linkedin, Send, CheckCircle2, AlertCircle } from "lucide-react";
+import { Mail, Github, Linkedin, Send, CheckCircle2, AlertCircle, FileText } from "lucide-react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
@@ -97,13 +97,20 @@ export function Contact() {
         <div className="grid md:grid-cols-2 gap-12">
           <div className="space-y-6">
             <div>
-              <h3 className="text-[14px] font-bold tracking-tight mb-2" style={{ color: 'var(--text-primary)' }}>Let&apos;s Build Together</h3>
-              <p className="text-[12px] leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                Open for collaborations, new roles, and interesting conversations around open source, WordPress, and frontend systems.
+              <h3 className="text-[14px] font-bold tracking-tight mb-2" style={{ color: 'var(--text-primary)' }}>Open to Engineering Opportunities &amp; Collaboration</h3>
+              <p className="text-[12px] leading-relaxed mb-4" style={{ color: 'var(--text-secondary)' }}>
+                Interested in remote engineering opportunities, open-source collaboration, WordPress ecosystem tooling, and scalable product development.
+              </p>
+              <p className="text-[11px] font-medium leading-relaxed italic" style={{ color: 'var(--text-muted)' }}>
+                Experienced working with distributed teams, modern frontend systems, and custom WordPress engineering.
               </p>
             </div>
 
             <div className="space-y-3">
+              <Link href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 text-[11px] uppercase tracking-widest font-bold py-3 rounded-lg transition-colors border hover:bg-emerald-500/10 hover:text-emerald-500 hover:border-emerald-500/30" style={{ backgroundColor: 'var(--card-secondary)', borderColor: 'var(--border)', color: 'var(--text-primary)' }}>
+                <FileText className="w-4 h-4" />
+                Resume / CV
+              </Link>
               <Link href="mailto:kunalpareek56@gmail.com" className="w-full flex items-center justify-center gap-2 text-[11px] uppercase tracking-widest font-bold py-3 rounded-lg transition-colors border" style={{ backgroundColor: 'var(--card-secondary)', borderColor: 'var(--border)', color: 'var(--text-primary)' }}>
                 <Mail className="w-4 h-4" />
                 Email Me
