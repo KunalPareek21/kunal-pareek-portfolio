@@ -17,16 +17,16 @@ export function Hero() {
           Currently building scalable WordPress ecosystems, open-source plugins, themes, APIs, internal tooling, and high-performance frontend systems using React, Next.js, PHP, Node.js, and TypeScript.
         </p>
 
-        <div className="flex flex-wrap items-center gap-4 mb-6">
-          <Link href="#projects" className="bg-emerald-500 text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-tight flex items-center gap-2 hover:bg-emerald-600 transition-colors">
+        <div className="grid grid-cols-2 gap-3 mb-6 md:flex md:flex-wrap md:items-center md:gap-4">
+          <Link href="#projects" className="col-span-2 bg-emerald-500 text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-tight flex items-center justify-center gap-2 hover:bg-emerald-600 transition-colors md:col-span-1 md:w-auto">
             <FolderGit2 className="w-4 h-4" />
             Projects
           </Link>
-          <Link href="https://github.com/KunalPareek21" target="_blank" rel="noopener noreferrer" className="px-6 py-3 rounded-full text-xs font-bold uppercase tracking-tight flex items-center gap-2 transition-colors border" style={{ borderColor: 'var(--border-hover)', color: 'var(--text-primary)', backgroundColor: 'var(--card-secondary)' }}>
+          <Link href="https://github.com/KunalPareek21" target="_blank" rel="noopener noreferrer" className="px-4 py-3 rounded-full text-xs font-bold uppercase tracking-tight flex items-center justify-center gap-2 transition-colors border md:px-6" style={{ borderColor: 'var(--border-hover)', color: 'var(--text-primary)', backgroundColor: 'var(--card-secondary)' }}>
             <Github className="w-4 h-4" />
             GitHub
           </Link>
-          <Link href="https://www.linkedin.com/in/kunal-pareek21/" target="_blank" rel="noopener noreferrer" className="px-6 py-3 rounded-full text-xs font-bold uppercase tracking-tight flex items-center gap-2 transition-colors border" style={{ borderColor: 'var(--border-hover)', color: 'var(--text-primary)', backgroundColor: 'var(--card-secondary)' }}>
+          <Link href="https://www.linkedin.com/in/kunal-pareek21/" target="_blank" rel="noopener noreferrer" className="px-4 py-3 rounded-full text-xs font-bold uppercase tracking-tight flex items-center justify-center gap-2 transition-colors border md:px-6" style={{ borderColor: 'var(--border-hover)', color: 'var(--text-primary)', backgroundColor: 'var(--card-secondary)' }}>
             <Linkedin className="w-4 h-4" />
             LinkedIn
           </Link>
