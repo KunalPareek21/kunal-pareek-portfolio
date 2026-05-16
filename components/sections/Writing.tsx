@@ -17,9 +17,14 @@ export function Writing() {
               Developer Notes
             </h2>
             <p className="text-[12px] leading-relaxed mb-6" style={{ color: 'var(--text-muted)' }}>
-              Thoughts, explorations, and documented solutions on building modern web systems.
+              Engineering notes, open source work, architecture decisions, frontend systems, WordPress development, API integrations, and async collaboration learnings from real production work.
             </p>
-            <Link href="#notes" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-emerald-500 hover:text-emerald-400 transition-colors">
+            <Link
+              href="https://dev.to/kunal_pareek"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-emerald-500 hover:text-emerald-400 transition-colors"
+            >
               View all notes <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -30,14 +35,16 @@ export function Writing() {
             </h3>
             <div className="flex flex-wrap gap-3">
               {noteTopics.map((topic) => (
-                <div
+                <Link
                   key={topic.name}
-                  className="flex items-center gap-3 px-4 py-2 rounded-lg transition-colors cursor-pointer group border"
-                  style={{ backgroundColor: 'var(--card-secondary)', borderColor: 'var(--border-hover)' }}
+                  href={topic.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 px-4 py-2 rounded-lg transition-all duration-300 cursor-pointer group border border-[var(--border-hover)] hover:-translate-y-0.5 hover:border-emerald-500/60 hover:shadow-[0_0_18px_rgba(16,185,129,0.12)]"
+                  style={{ backgroundColor: 'var(--card-secondary)' }}
                 >
                   <span className="text-[11px] font-bold uppercase tracking-widest group-hover:text-emerald-500 transition-colors" style={{ color: 'var(--text-primary)' }}>{topic.name}</span>
-                  <span className="text-[10px] font-mono" style={{ color: 'var(--text-muted)' }}>{topic.count}</span>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

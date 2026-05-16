@@ -148,52 +148,45 @@ export const skillGroups = [
 ] as const;
 
 export const noteTopics = [
-  { name: "WordPress Architecture", count: 4 },
-  { name: "Async Work & Culture", count: 2 },
-  { name: "Frontend Engineering", count: 6 },
-  { name: "Automation Workflows", count: 3 },
-  { name: "Plugin Development", count: 5 },
+  { name: "WORDPRESS SYSTEMS", href: "https://dev.to/kunal_pareek" },
+  { name: "OPEN SOURCE", href: "https://dev.to/kunal_pareek" },
+  { name: "FRONTEND ENGINEERING", href: "https://dev.to/kunal_pareek" },
+  { name: "ASYNC WORK & CULTURE", href: "https://dev.to/kunal_pareek" },
+  { name: "API & AUTOMATION", href: "https://dev.to/kunal_pareek" },
+  { name: "PLUGIN ARCHITECTURE", href: "https://dev.to/kunal_pareek" },
 ] as const;
 
 export const blogPosts = [
   {
-    title: "Building Scalable WordPress Plugin Architecture",
-    excerpt:
-      "How I structure production-grade WordPress plugins with OOP patterns, custom hook systems, and long-term maintainability in mind.",
-    date: "Apr 2025",
-    readTime: "6 min read",
-    tags: ["WordPress", "PHP", "Architecture"],
-    image: "/blog-wp-architecture.png",
-    href: "mailto:kunalpareek56@gmail.com?subject=Blog: WordPress Plugin Architecture",
-  },
-  {
-    title: "UTM Tracking at Scale — A CRM Integration Deep Dive",
-    excerpt:
-      "A walkthrough of building a robust UTM capture pipeline that feeds directly into CRM systems without data loss across redirects.",
-    date: "Mar 2025",
-    readTime: "8 min read",
-    tags: ["WordPress", "CRM", "Analytics"],
-    image: "/blog-utm-crm.png",
-    href: "mailto:kunalpareek56@gmail.com?subject=Blog: UTM Tracking Deep Dive",
-  },
-  {
-    title: "From WordPress to Next.js — Lessons From the Transition",
-    excerpt:
-      "Key architectural decisions, mental model shifts, and patterns I carried over from years of WordPress development into modern React ecosystems.",
-    date: "Feb 2025",
-    readTime: "5 min read",
-    tags: ["Next.js", "React", "WordPress"],
-    image: "/blog-nextjs-transition.png",
-    href: "mailto:kunalpareek56@gmail.com?subject=Blog: WordPress to Next.js",
-  },
-  {
     title: "Async-First Engineering Culture for Remote Teams",
     excerpt:
-      "Practical frameworks for async communication, documentation culture, and delivery discipline working with distributed US-based clients.",
-    date: "Jan 2025",
-    readTime: "4 min read",
-    tags: ["Remote Work", "Culture", "Process"],
+      "Lessons from building maintainable systems, improving async communication, and collaborating effectively with distributed engineering teams.",
+    tags: ["#opensource", "#remote", "#teams", "#career"],
     image: "/blog-async-culture.png",
-    href: "mailto:kunalpareek56@gmail.com?subject=Blog: Async Engineering Culture",
+    href: "https://dev.to/kunal_pareek/async-first-engineering-culture-for-remote-teams-5fgm",
+  },
+  {
+    title: "Building Maintainable WordPress Plugin and Theme Systems",
+    excerpt:
+      "Practical lessons from building scalable WordPress plugin systems, reusable themes, internal tooling, maintainable architecture patterns, and long term developer friendly workflows.",
+    tags: ["#WORDPRESS", "#WEBDEV", "#ARCHITECTURE", "#OPENSOURCE"],
+    image: "/blog-wp-architecture.png",
+    href: "https://dev.to/kunal_pareek/building-maintainable-wordpress-plugin-and-theme-systems-1n23",
+  },
+  {
+    title: "UTM Tracking at Scale: Building a CRM Integration Pipeline for WordPress",
+    excerpt:
+      "How I built a WordPress based UTM tracking and CRM analytics system with REST APIs, attribution pipelines, event tracking, and maintainable backend architecture.",
+    tags: ["#wordpress", "#opensource", "#webdev", "#analytics"],
+    image: "/blog-utm-crm.png",
+    href: "https://dev.to/kunal_pareek/utm-tracking-at-scale-building-a-crm-integration-pipeline-for-wordpress-3206",
+  },
+  {
+    title: "What Years of WordPress Development Taught Me About Modern Frontend Systems",
+    excerpt:
+      "Lessons on maintainability, extensibility, frontend architecture, and long term system thinking carried from years of WordPress development into modern React and Next.js workflows.",
+    tags: ["#nextjs", "#react", "#wordpress", "#webdev"],
+    image: "/blog-nextjs-transition.png",
+    href: "https://dev.to/kunal_pareek/what-years-of-wordpress-development-taught-me-about-modern-frontend-systems-4koh",
   },
 ] as const;
