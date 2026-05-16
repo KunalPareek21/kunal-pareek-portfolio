@@ -53,10 +53,16 @@ export function OpenSource() {
             <h3 className="text-[11px] font-bold uppercase mb-4" style={{ color: 'var(--text-primary)' }}>Open Source Philosophy</h3>
             <div className="space-y-4 text-[12px] leading-relaxed font-medium" style={{ color: 'var(--text-muted)' }}>
               <p>
-                My approach to engineering is grounded in maintainability, async collaboration, and the open web. I enjoy building tools that simplify workflows, improve developer experience, and remain understandable months after they&apos;re written.
+                My approach to engineering is centered around building maintainable software that solves practical problems. Over the past few years, I&apos;ve worked across WordPress ecosystems, frontend systems, internal tooling, and API-driven applications while collaborating remotely with distributed teams.
               </p>
               <p>
-                Whether it&apos;s a WordPress utility plugin, internal dashboard, API integration, or frontend system, I focus on creating software that is scalable, reusable, and practical in real-world environments.
+                I enjoy building tools that improve workflows, simplify repetitive tasks, and create better developer experiences. A large part of my work involves custom WordPress development, scalable frontend architecture with React and Next.js, and integrating external services into production systems.
+              </p>
+              <p>
+                I value clean communication, readable code, and long-term maintainability over unnecessary complexity. Whether I&apos;m developing a utility plugin, an internal dashboard, or a full-stack application, I focus on building systems that remain understandable and useful months after they&apos;re written.
+              </p>
+              <p>
+                Outside of client work, I&apos;m actively improving my open-source presence by building public plugins, reusable tooling, and engineering-focused side projects while continuing to learn modern backend and frontend technologies.
               </p>
             </div>
           </div>
