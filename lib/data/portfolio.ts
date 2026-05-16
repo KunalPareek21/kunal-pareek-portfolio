@@ -19,6 +19,13 @@ export const technicalStack = [
   "PHP",
   "MySQL",
   "Tailwind CSS",
+  "JavaScript",
+  "jQuery",
+  "REST API",
+  "GitHub Actions",
+  "Docker",
+  "WooCommerce",
+  "MongoDB",
 ] as const;
 
 export const openSourceCategories = [

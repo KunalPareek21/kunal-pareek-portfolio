@@ -18,19 +18,22 @@ export function About() {
 
         <div className="space-y-6 text-sm leading-relaxed max-w-full" style={{ color: 'var(--text-secondary)' }}>
           <p>
-            I am a self-taught developer from India, beginning my journey by diving deep into <span className="text-emerald-500 font-medium">WordPress and frontend development</span>. What started as building simple websites quickly evolved into architecting custom plugins and robust internal tooling from the ground up.
+            I build scalable WordPress ecosystems, open-source plugins, internal tooling, and modern frontend systems focused on performance, developer experience, and maintainability.
           </p>
           <p>
-            Working remotely with globally distributed teams, particularly US-based companies, has shaped my approach to software. I thrive in asynchronous environments, where clear communication and highly documented code are not just preferred, but essential.
+            My journey started with frontend development and evolved into building custom plugins, APIs, automation systems, dashboards, and full-stack applications used in real-world business environments.
           </p>
           <p>
-            My core interests lie at the intersection of open source, developer experience (DX), automation, SaaS systems, and modern frontend engineering.
+            Working remotely with globally distributed teams, particularly US-based companies, has shaped how I approach software engineering. I thrive in asynchronous environments where clear communication, ownership, documentation, and thoughtful collaboration are essential.
+          </p>
+          <p>
+            I’m especially interested in open source, developer tooling, automation systems, SaaS architecture, WordPress extensibility, and modern frontend engineering with React and Next.js.
           </p>
           <p
             className="font-medium p-6 rounded-lg border italic"
             style={{ color: 'var(--text-primary)', backgroundColor: 'var(--card-secondary)', borderColor: 'var(--border-hover)' }}
           >
-            &quot;I enjoy building tools that improve developer workflows and simplify complex systems.&quot;
+            &quot;I enjoy building developer-focused tools that simplify complex workflows, improve maintainability, and create better user experiences.&quot;
           </p>
         </div>
 
