@@ -3,6 +3,7 @@ import './globals.css';
 import { ParticleFieldBackground } from '@/components/effects/ParticleFieldBackground';
 import { CustomCursor } from '@/components/effects/CustomCursor';
 import { JsonLd } from '@/components/JsonLd';
+import { LoadingScreen } from '@/components/ui/LoadingScreen';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { BackToTop } from '@/components/ui/BackToTop';
 import { SITE_URL } from '@/lib/data/portfolio';
@@ -50,6 +51,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased selection:bg-[#1A1A1A] selection:text-[#E5E7EB]" suppressHydrationWarning>
+        <LoadingScreen />
         <JsonLd />
         <ThemeProvider>
           <CustomCursor />
