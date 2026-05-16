@@ -21,9 +21,9 @@ export function Experience() {
             <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-4">
               <div>
                 <p className="text-[14px] font-bold mb-1" style={{ color: 'var(--text-primary)' }}>Perimattic</p>
-                <p className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--text-muted)' }}>Frontend &amp; Full Stack Developer</p>
+                <p className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--text-muted)' }}>Frontend Engineer → Full Stack Engineer</p>
               </div>
-              <p className="text-[10px] italic mt-2 md:mt-0" style={{ color: 'var(--text-muted)' }}>2021 — Present</p>
+              <p className="text-[10px] italic mt-2 md:mt-0" style={{ color: 'var(--text-muted)' }}>Apr 2021 — Present</p>
             </div>
 
             <div className="mb-6 flex flex-wrap gap-2">
@@ -34,7 +34,7 @@ export function Experience() {
               ))}
             </div>
 
-            <ul className="space-y-2">
+            <ul className="space-y-2 mb-6">
               {experienceHighlights.map((highlight) => (
                 <li key={highlight} className="text-[12px] flex items-start gap-3" style={{ color: 'var(--text-secondary)' }}>
                   <span className="mt-[2px] leading-none px-1 font-bold" style={{ color: 'var(--text-muted)' }}>•</span>
@@ -42,6 +42,10 @@ export function Experience() {
                 </li>
               ))}
             </ul>
+
+            <div className="text-[12px] font-medium leading-relaxed p-4 rounded-lg border italic" style={{ color: 'var(--text-primary)', backgroundColor: 'var(--card-secondary)', borderColor: 'var(--border-hover)' }}>
+              Currently focused on open-source tooling, scalable frontend architecture, async collaboration, and modern WordPress ecosystem development.
+            </div>
           </div>
         </div>
       </FadeIn>

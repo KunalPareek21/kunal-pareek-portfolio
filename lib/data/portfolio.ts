@@ -64,11 +64,12 @@ export const openSourceCategories = [
 ] as const;
 
 export const experienceHighlights = [
-  "Architected custom plugin systems and internal hooks/utilities for complex WordPress environments.",
-  "Built high-performance staffing websites tailored to client specifications.",
-  "Developed SaaS dashboards utilizing modern React and Next.js principles.",
-  "Integrated extensive APIs to bridge internal systems with external services.",
-  "Collaborated almost entirely remotely/async with US-based clients, ensuring clear communication and reliable delivery.",
+  "Started with WordPress development, building 50+ recruitment and staffing platforms for real-world client environments.",
+  "Developed custom WordPress plugins, reusable hooks/utilities, and internal tooling focused on scalability and maintainability.",
+  "Transitioned into React and Next.js development, building dashboards, SaaS systems, analytics platforms, and modern frontend applications.",
+  "Built API-driven systems using Node.js, integrating third-party services, automation workflows, and business logic layers.",
+  "Worked extensively in async remote environments with US-based teams, emphasizing clear communication, documentation, and reliable delivery.",
+  "Delivered production-ready applications across staffing, LMS, analytics, automation, and internal business platforms.",
 ] as const;
 
 export const experienceTech = [
@@ -79,6 +80,11 @@ export const experienceTech = [
   "Node.js",
   "PHP",
   "MySQL",
+  "REST API",
+  "JavaScript",
+  "jQuery",
+  "WooCommerce",
+  "MongoDB",
 ] as const;
 
 export const projects = [
