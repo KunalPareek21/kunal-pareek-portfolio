@@ -101,7 +101,7 @@ export function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[60] flex flex-col p-8"
+            className="fixed inset-0 z-[60] flex flex-col px-8 py-4"
             style={{ backgroundColor: 'var(--background)' }}
           >
             <div className="flex justify-between items-center mb-12">
@@ -121,7 +121,7 @@ export function Header() {
               </button>
             </div>
             
-            <nav className="flex flex-col gap-6 text-[13px] font-bold uppercase tracking-widest">
+            <nav className="flex flex-col gap-8 text-[13px] font-bold uppercase tracking-widest pl-4">
               {navItems.map(({ label, id }, idx) => {
                 const isActive = activeSection === id;
                 return (
@@ -134,10 +134,10 @@ export function Header() {
                     <Link
                       href={`#${id}`}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="flex items-center gap-4 transition-colors"
+                      className="flex items-center relative transition-colors"
                       style={{ color: isActive ? 'var(--text-primary)' : 'var(--text-muted)' }}
                     >
-                      {isActive && <div className="w-2 h-2 rounded-full bg-emerald-500" />}
+                      {isActive && <div className="absolute -left-4 w-1.5 h-1.5 rounded-full bg-emerald-500" />}
                       {label}
                     </Link>
                   </motion.div>
@@ -145,7 +145,7 @@ export function Header() {
               })}
             </nav>
             
-            <div className="mt-auto pb-8">
+            <div className="mt-auto pb-8 pl-4">
                <p className="text-[10px] font-mono tracking-widest uppercase" style={{ color: 'var(--text-muted)' }}>
                  Focused on scalable systems, open source, and modern web engineering.
                </p>
