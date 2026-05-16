@@ -128,20 +128,20 @@ export const projects = [
 
 export const skillGroups = [
   {
-    category: "Frontend",
-    skills: ["React", "Next.js", "TypeScript", "Vue.js", "Tailwind CSS"],
+    category: "Frontend Engineering",
+    skills: ["React", "Next.js", "TypeScript", "JavaScript", "Vue.js", "jQuery", "Tailwind CSS"],
   },
   {
-    category: "Backend",
-    skills: ["Node.js", "PHP", "REST APIs", "MySQL", "Express"],
+    category: "Backend & APIs",
+    skills: ["Node.js", "Express", "PHP", "REST APIs", "MySQL", "MongoDB"],
   },
   {
-    category: "CMS & Platforms",
-    skills: ["WordPress", "WooCommerce", "Headless CMS"],
+    category: "WordPress Ecosystem",
+    skills: ["WordPress", "WooCommerce", "Plugin Development", "Theme Development", "WP Hooks/API"],
   },
   {
-    category: "Developer Tools",
-    skills: ["GitHub", "Vercel", "Figma", "Postman", "Bash/Unix"],
+    category: "Developer Workflow",
+    skills: ["GitHub", "Git", "Postman", "Vercel", "Bash/Unix", "Figma"],
   },
 ] as const;
 

@@ -10,10 +10,13 @@ export function Skills() {
         style={{ backgroundColor: 'var(--card)', borderColor: 'var(--border)' } as React.CSSProperties}
       >
         <div className="mb-8">
-          <h2 className="text-[10px] uppercase tracking-widest font-bold flex items-center gap-2" style={{ color: 'var(--text-muted)' }}>
+          <h2 className="text-[10px] uppercase tracking-widest font-bold flex items-center gap-2 mb-4" style={{ color: 'var(--text-muted)' }}>
             <Wrench className="w-4 h-4 text-emerald-500" />
             Technical Arsenal
           </h2>
+          <p className="text-sm leading-relaxed max-w-2xl" style={{ color: 'var(--text-secondary)' }}>
+            Technologies and systems I use to build scalable WordPress ecosystems, APIs, automation tooling, and modern frontend applications.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-12">
