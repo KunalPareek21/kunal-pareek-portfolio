@@ -10,7 +10,7 @@ export function OpenSource() {
           <Share2 className="w-4 h-4 text-emerald-500" />
           Open Source &amp; Community
         </h2>
-        <p className="text-sm leading-relaxed max-w-2xl" style={{ color: 'var(--text-secondary)' }}>
+        <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
           I strongly believe in the open web and public engineering. My work spans open-source WordPress plugins, reusable tooling, internal systems, automation workflows, and frontend architecture experiments built for real-world scalability and maintainability.
         </p>
       </FadeIn>
