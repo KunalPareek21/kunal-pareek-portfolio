@@ -10,13 +10,21 @@ import { Skills } from "@/components/sections/Skills";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/layout/Footer";
 
-export default function Home() {
+type HomeProps = {
+  searchParams: Promise<{
+    highlight?: string;
+  }>;
+};
+
+export default async function Home({ searchParams }: HomeProps) {
+  const { highlight } = await searchParams;
+
   return (
     <main className="min-h-screen">
       <Header />
       <Hero />
       <About />
-      <OpenSource />
+      <OpenSource highlightSlug={highlight} />
       <Experience />
       <Projects />
       <Blog />

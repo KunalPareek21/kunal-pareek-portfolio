@@ -1,10 +1,42 @@
-import { BookOpen, Share2 } from "lucide-react";
+"use client";
+
+import { useEffect, useRef } from "react";
+import Link from "next/link";
+import { ArrowUpRight, BookOpen, Share2 } from "lucide-react";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { openSourceCategories } from "@/lib/data/portfolio";
 
-export function OpenSource() {
+type OpenSourceProps = {
+  highlightSlug?: string;
+};
+
+export function OpenSource({ highlightSlug }: OpenSourceProps) {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const itemRefs = useRef<Record<string, HTMLLIElement | null>>({});
+
+  useEffect(() => {
+    if (!highlightSlug) {
+      return;
+    }
+
+    sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    const timer = window.setTimeout(() => {
+      itemRefs.current[highlightSlug]?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }, 250);
+
+    return () => window.clearTimeout(timer);
+  }, [highlightSlug]);
+
   return (
-    <section id="open-source" className="py-4 md:py-6 lg:py-8 px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px] mx-auto scroll-mt-24">
+    <section
+      id="open-source"
+      ref={sectionRef}
+      className="py-4 md:py-6 lg:py-8 px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px] mx-auto scroll-mt-24"
+    >
       <FadeIn className="mb-8">
         <h2 className="text-[10px] uppercase tracking-widest font-bold flex items-center gap-2 mb-4" style={{ color: 'var(--text-muted)' }}>
           <Share2 className="w-4 h-4 text-emerald-500" />
@@ -29,13 +61,79 @@ export function OpenSource() {
                 <Icon className="w-5 h-5" style={{ color: 'var(--text-muted)' }} />
                 {cat.title}
               </h3>
-              <ul className="space-y-4">
-                {cat.items.map((item) => (
-                  <li key={item} className="text-[11px] font-bold uppercase tracking-widest flex items-start gap-2" style={{ color: 'var(--text-primary)' }}>
-                    <span style={{ color: 'var(--text-muted)' }} className="mt-[1px]">-</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
+              <ul className="grid gap-4 auto-rows-fr">
+                {cat.items.map((item) => {
+                  const isHighlighted = item.slug === highlightSlug;
+
+                  return (
+                    <li
+                      key={item.name}
+                      id={item.slug}
+                      ref={(node) => {
+                        itemRefs.current[item.slug] = node;
+                      }}
+                      className="flex h-full min-h-[172px] flex-col rounded-lg border p-4 transition-all duration-300"
+                      style={{
+                        backgroundColor: isHighlighted ? "color-mix(in srgb, var(--card-secondary) 84%, rgb(16 185 129 / 16%))" : "var(--card-secondary)",
+                        borderColor: isHighlighted ? "rgb(16 185 129 / 0.55)" : "var(--border)",
+                        boxShadow: isHighlighted ? "0 0 0 1px rgb(16 185 129 / 0.2), 0 0 24px rgb(16 185 129 / 0.12)" : "none",
+                      }}
+                    >
+                    <div className="flex items-start justify-between gap-3 mb-2">
+                      <div>
+                        <div
+                          className="text-[11px] font-bold uppercase tracking-widest"
+                          style={{ color: isHighlighted ? "#34d399" : "var(--text-primary)" }}
+                        >
+                          {item.name}
+                        </div>
+                        <p
+                          className="mt-2 text-[12px] leading-relaxed font-medium"
+                          style={{
+                            color: "var(--text-muted)",
+                            display: "-webkit-box",
+                            WebkitLineClamp: 2,
+                            WebkitBoxOrient: "vertical",
+                            overflow: "hidden",
+                          }}
+                        >
+                          {item.description}
+                        </p>
+                      </div>
+                      <Link
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Open ${item.name} on GitHub`}
+                        className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-md border transition-colors hover:text-emerald-500"
+                        style={{
+                          borderColor: isHighlighted ? "rgb(16 185 129 / 0.3)" : "var(--border)",
+                          color: isHighlighted ? "#34d399" : "var(--text-muted)",
+                        }}
+                      >
+                        <ArrowUpRight className="h-4 w-4" />
+                      </Link>
+                    </div>
+                    <div className="mt-3 flex min-h-[3.25rem] flex-wrap content-start gap-2">
+                      {item.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-md border px-2 py-1 text-[10px] font-bold uppercase tracking-widest"
+                          style={{ borderColor: "var(--border)", color: "var(--text-secondary)" }}
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                      <span
+                        className="rounded-md border px-2 py-1 text-[10px] font-bold uppercase tracking-widest text-emerald-500"
+                        style={{ borderColor: "var(--border)" }}
+                        >
+                          {item.status}
+                        </span>
+                      </div>
+                    </li>
+                  );
+                })}
               </ul>
             </FadeIn>
           );

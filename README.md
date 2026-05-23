@@ -74,7 +74,7 @@ I occasionally write about architecture transitions, workflow automation, and re
 
 I'm always open to discussing remote engineering opportunities, open-source collaborations, or scalable product development.
 
-- **Website:** [kunalpareek.dev](https://kunalpareek.dev)
+- **Website:** [kunalpareek.in](https://kunalpareek.in)
 - **LinkedIn:** [in/kunal-pareek21](https://www.linkedin.com/in/kunal-pareek21/)
 - **Email:** [kunalpareek56@gmail.com](mailto:kunalpareek56@gmail.com)
 

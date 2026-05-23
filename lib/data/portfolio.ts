@@ -1,6 +1,6 @@
 import { Box, Cpu, LayoutTemplate } from "lucide-react";
 
-export const SITE_URL = "https://kunalpareek.dev";
+export const SITE_URL = "https://kunalpareek.in";
 
 export const navItems = [
   { label: "About", id: "about" },
@@ -34,35 +34,161 @@ export const openSourceCategories = [
     title: "WordPress Plugins",
     icon: Box,
     items: [
-      "CRM UTM Tracker",
-      "Async Queue Manager",
-      "WP Component Library",
-      "Developer Hooks Toolkit",
-      "REST API Utilities",
+      {
+        slug: "commandbar",
+        name: "commandbar",
+        description: "Command palette plugin for faster WordPress admin actions and shortcuts.",
+        href: "https://github.com/KunalPareek21/commandbar",
+        tags: ["Plugin", "WordPress", "PHP"],
+        status: "Open Source",
+      },
+      {
+        slug: "patchnotes",
+        name: "patchnotes",
+        description: "Release notes plugin for publishing product and site updates with less friction.",
+        href: "https://github.com/KunalPareek21/patchnotes",
+        tags: ["Plugin", "WordPress", "Content"],
+        status: "Open Source",
+      },
+      {
+        slug: "writingmode",
+        name: "writingmode",
+        description: "Writing-focused plugin that streamlines authoring and reduces editor friction.",
+        href: "https://github.com/KunalPareek21/writingmode",
+        tags: ["Plugin", "WordPress", "Editor"],
+        status: "Open Source",
+      },
+      {
+        slug: "speedlens",
+        name: "speedlens",
+        description: "Performance plugin for quicker speed checks and optimization-oriented workflows.",
+        href: "https://github.com/KunalPareek21/speedlens",
+        tags: ["Plugin", "WordPress", "Performance"],
+        status: "Open Source",
+      },
+      {
+        slug: "svg-shield",
+        name: "svg-shield",
+        description: "SVG handling utility focused on safer uploads and cleaner WordPress media workflows.",
+        href: "https://github.com/KunalPareek21/svg-shield",
+        tags: ["Plugin", "WordPress", "Security"],
+        status: "Open Source",
+      },
+      {
+        slug: "safeupdate",
+        name: "safeupdate",
+        description: "Update management plugin built for more controlled and predictable WordPress releases.",
+        href: "https://github.com/KunalPareek21/safeupdate",
+        tags: ["Plugin", "WordPress", "Maintenance"],
+        status: "Open Source",
+      },
     ],
   },
   {
     title: "WordPress Themes",
     icon: LayoutTemplate,
     items: [
-      "Performance-Optimized Starter Themes",
-      "Modular WordPress Theme Architecture",
-      "Reusable Theme Utilities",
-      "Internal Admin UI Systems",
+      {
+        slug: "memoir",
+        name: "memoir",
+        description: "Editorial WordPress theme for long-form publishing and a clean reading experience.",
+        href: "https://github.com/KunalPareek21/memoir",
+        tags: ["Theme", "WordPress", "Editorial"],
+        status: "Open Source",
+      },
+      {
+        slug: "podium",
+        name: "podium",
+        description: "Presentation-first theme for launches, announcements, and content-led brand pages.",
+        href: "https://github.com/KunalPareek21/podium",
+        tags: ["Theme", "WordPress", "Marketing"],
+        status: "Open Source",
+      },
+      {
+        slug: "handbook",
+        name: "handbook",
+        description: "Documentation theme for internal knowledge bases and public-facing docs.",
+        href: "https://github.com/KunalPareek21/handbook",
+        tags: ["Theme", "WordPress", "Documentation"],
+        status: "Open Source",
+      },
+      {
+        slug: "newsroom",
+        name: "newsroom",
+        description: "News and magazine theme built for repeat publishing and structured content layouts.",
+        href: "https://github.com/KunalPareek21/newsroom",
+        tags: ["Theme", "WordPress", "Publishing"],
+        status: "Open Source",
+      },
+      {
+        slug: "openframe",
+        name: "openframe",
+        description: "Flexible starter theme for reusable layouts, rapid iteration, and custom builds.",
+        href: "https://github.com/KunalPareek21/openframe",
+        tags: ["Theme", "WordPress", "Starter"],
+        status: "Open Source",
+      },
+      {
+        slug: "docpress",
+        name: "docpress",
+        description: "Docs-oriented theme for WordPress sites that need a structured reading flow.",
+        href: "https://github.com/KunalPareek21/docpress",
+        tags: ["Theme", "WordPress", "Docs"],
+        status: "Open Source",
+      },
     ],
   },
   {
     title: "Developer Tools",
     icon: Cpu,
     items: [
-      "API Integrations & Automation",
-      "Internal Dashboard Systems",
-      "Developer Workflow Tooling",
-      "Async Productivity Utilities",
-      "CLI & Utility Experiments",
+      {
+        slug: "api-integrations-automation",
+        name: "API Integrations & Automation",
+        description: "Utilities around third-party APIs, workflow automation, and internal operations.",
+        href: "https://github.com/KunalPareek21",
+        tags: ["Tools", "Automation", "APIs"],
+        status: "Ongoing",
+      },
+      {
+        slug: "internal-dashboard-systems",
+        name: "Internal Dashboard Systems",
+        description: "Admin and reporting tools built to improve visibility across teams and client systems.",
+        href: "https://github.com/KunalPareek21",
+        tags: ["Tools", "Dashboards", "Internal"],
+        status: "Ongoing",
+      },
+      {
+        slug: "developer-workflow-tooling",
+        name: "Developer Workflow Tooling",
+        description: "Workflow utilities that reduce repetitive work and improve development ergonomics.",
+        href: "https://github.com/KunalPareek21",
+        tags: ["Tools", "DX", "Workflow"],
+        status: "Ongoing",
+      },
+      {
+        slug: "async-productivity-utilities",
+        name: "Async Productivity Utilities",
+        description: "Small systems for distributed work, cleaner handoffs, and more structured execution.",
+        href: "https://github.com/KunalPareek21",
+        tags: ["Tools", "Async", "Productivity"],
+        status: "Ongoing",
+      },
+      {
+        slug: "cli-utility-experiments",
+        name: "CLI & Utility Experiments",
+        description: "CLI prototypes and utility experiments for faster local and team workflows.",
+        href: "https://github.com/KunalPareek21",
+        tags: ["Tools", "CLI", "Experiments"],
+        status: "Ongoing",
+      },
     ],
   },
 ] as const;
+
+export const openSourceSlugs = openSourceCategories.flatMap((category) =>
+  category.items.map((item) => item.slug),
+);
 
 export const experienceHighlights = [
   "Started with WordPress development, building 50+ recruitment and staffing platforms for real-world client environments.",
@@ -143,7 +269,7 @@ export const skillGroups = [
   },
   {
     category: "Developer Workflow",
-    skills: ["GitHub", "Git", "Postman", "Vercel", "Bash/Unix", "Figma"],
+    skills: ["GitHub", "Git", "Postman", "Vercel", "Figma"],
   },
 ] as const;
 
