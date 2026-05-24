@@ -125,7 +125,7 @@ export function Contact() {
             </div>
           </div>
 
-          <div className="relative">
+          <div id="contact-form" className="relative scroll-mt-24">
             <AnimatePresence mode="wait">
               {isSubmitted ? (
                 <motion.div

@@ -1,4 +1,4 @@
-import { Box, Cpu, LayoutTemplate } from "lucide-react";
+import { Palette, Plug } from "lucide-react";
 
 export const SITE_URL = "https://kunalpareek.in";
 
@@ -32,7 +32,7 @@ export const technicalStack = [
 export const openSourceCategories = [
   {
     title: "WordPress Plugins",
-    icon: Box,
+    icon: Plug,
     items: [
       {
         slug: "commandbar",
@@ -86,7 +86,7 @@ export const openSourceCategories = [
   },
   {
     title: "WordPress Themes",
-    icon: LayoutTemplate,
+    icon: Palette,
     items: [
       {
         slug: "memoir",
@@ -139,48 +139,18 @@ export const openSourceCategories = [
     ],
   },
   {
-    title: "Developer Tools",
-    icon: Cpu,
+    title: "WordPress Core & OSS",
+    iconUrl: "https://cdn.simpleicons.org/wordpress/10b981",
     items: [
       {
-        slug: "api-integrations-automation",
-        name: "API Integrations & Automation",
-        description: "Utilities around third-party APIs, workflow automation, and internal operations.",
-        href: "https://github.com/KunalPareek21",
-        tags: ["Tools", "Automation", "APIs"],
-        status: "Ongoing",
-      },
-      {
-        slug: "internal-dashboard-systems",
-        name: "Internal Dashboard Systems",
-        description: "Admin and reporting tools built to improve visibility across teams and client systems.",
-        href: "https://github.com/KunalPareek21",
-        tags: ["Tools", "Dashboards", "Internal"],
-        status: "Ongoing",
-      },
-      {
-        slug: "developer-workflow-tooling",
-        name: "Developer Workflow Tooling",
-        description: "Workflow utilities that reduce repetitive work and improve development ergonomics.",
-        href: "https://github.com/KunalPareek21",
-        tags: ["Tools", "DX", "Workflow"],
-        status: "Ongoing",
-      },
-      {
-        slug: "async-productivity-utilities",
-        name: "Async Productivity Utilities",
-        description: "Small systems for distributed work, cleaner handoffs, and more structured execution.",
-        href: "https://github.com/KunalPareek21",
-        tags: ["Tools", "Async", "Productivity"],
-        status: "Ongoing",
-      },
-      {
-        slug: "cli-utility-experiments",
-        name: "CLI & Utility Experiments",
-        description: "CLI prototypes and utility experiments for faster local and team workflows.",
-        href: "https://github.com/KunalPareek21",
-        tags: ["Tools", "CLI", "Experiments"],
-        status: "Ongoing",
+        slug: "wordpress-core-contribution",
+        name: "WordPress Core Contribution",
+        description:
+          "Submitted a WordPress core patch for Trac #48257 improving REST API post-process endpoint discoverability during media uploads.",
+        href: "https://core.trac.wordpress.org/ticket/48257",
+        tags: ["Core", "WordPress", "REST API", "Open Source"],
+        status: "Has Patch",
+        featured: true,
       },
     ],
   },

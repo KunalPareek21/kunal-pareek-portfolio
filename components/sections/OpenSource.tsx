@@ -43,13 +43,13 @@ export function OpenSource({ highlightSlug }: OpenSourceProps) {
           Open Source &amp; Community
         </h2>
         <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-          I strongly believe in the open web and public engineering. My work spans open-source WordPress plugins, reusable tooling, internal systems, automation workflows, and frontend architecture experiments built for real-world scalability and maintainability.
+          Actively contributing to the WordPress open-source ecosystem through core patches, public plugins, technical writing, and developer-focused tooling built around maintainability, accessibility, and modern engineering workflows.
         </p>
       </FadeIn>
 
       <div className="grid md:grid-cols-3 gap-6 mb-8 md:mb-12 lg:mb-16">
         {openSourceCategories.map((cat, idx) => {
-          const Icon = cat.icon;
+          const Icon = "icon" in cat ? cat.icon : null;
           return (
             <FadeIn
               key={cat.title}
@@ -57,8 +57,12 @@ export function OpenSource({ highlightSlug }: OpenSourceProps) {
               className="rounded-xl p-6 border transition-colors duration-300"
               style={{ backgroundColor: 'var(--card)', borderColor: 'var(--border)' } as React.CSSProperties}
             >
-              <h3 className="text-[10px] uppercase tracking-widest text-emerald-500 mb-6 font-bold flex items-center gap-2">
-                <Icon className="w-5 h-5" style={{ color: 'var(--text-muted)' }} />
+              <h3 className="text-[10px] uppercase tracking-widest mb-6 font-bold flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
+                {"iconUrl" in cat ? (
+                  <img src={cat.iconUrl} alt="" className="w-5 h-5 object-contain pointer-events-none" />
+                ) : (
+                  Icon && <Icon className="w-5 h-5 text-emerald-500" />
+                )}
                 {cat.title}
               </h3>
               <ul className="grid gap-4 auto-rows-fr">
