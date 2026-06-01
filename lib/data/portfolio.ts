@@ -35,10 +35,10 @@ export const openSourceCategories = [
     icon: Plug,
     items: [
       {
-        slug: "commandbar",
-        name: "commandbar",
+        slug: "commandpilot",
+        name: "commandpilot",
         description: "Command palette plugin for faster WordPress admin actions and shortcuts.",
-        href: "https://github.com/KunalPareek21/commandbar",
+        href: "https://github.com/KunalPareek21/commandpilot",
         tags: ["Plugin", "WordPress", "PHP"],
         status: "Open Source",
       },
